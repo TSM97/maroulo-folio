@@ -44,7 +44,9 @@ if (import.meta.env.DEV) {
 const router = createRouter({
   history: createWebHistory(),
   routes,
-  scrollBehavior(_to, _from, savedPosition) {
+  scrollBehavior(to, from, savedPosition) {
+    // Query-only changes (e.g. the Works filter) keep the scroll position.
+    if (to.path === from.path && !savedPosition) return false
     // Wait for the outgoing page to fade (see PageTransition) before moving the scroll position.
     return new Promise((resolve) => {
       setTimeout(() => resolve(savedPosition ?? { top: 0 }), 200)

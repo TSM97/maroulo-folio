@@ -12,6 +12,10 @@ export interface ImageAsset {
 
 export type ProjectCategory = 'Residential' | 'Interior' | 'Cultural' | 'Public' | 'Concept'
 
+export type CategoryFilter = ProjectCategory | 'All'
+
+export type ProjectsViewMode = 'grid' | 'list'
+
 export type ProjectStatus = 'Completed' | 'In progress' | 'Concept'
 
 export interface Project {
