@@ -40,9 +40,15 @@ export interface SocialLink {
   url: string
 }
 
+export interface NavLink {
+  label: string
+  to: string
+}
+
 export interface SiteInfo {
   name: string
   tagline: string
+  nav: NavLink[]
   statement: string
   closingLine: string
   contactCta: string

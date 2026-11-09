@@ -39,6 +39,7 @@
   --container-max: 1440px;
   --gutter: clamp(1.25rem, 1rem + 1.5vw, 3rem);
   --grid-columns: 12;
+  --header-height: 4.5rem;
 
   /* Motion */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);

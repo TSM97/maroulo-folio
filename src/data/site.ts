@@ -10,6 +10,11 @@ import type { SiteInfo } from '@/types'
 export const site: SiteInfo = {
   name: 'Studio Name',
   tagline: 'Architecture, quietly considered.',
+  nav: [
+    { label: 'Works', to: '/projects' },
+    { label: 'Studio', to: '/about' },
+    { label: 'Contact', to: '/contact' },
+  ],
   statement:
     'We design spaces that listen first — to light, to material, to the people who will live in them. Each building is an attempt to say less, and mean more.',
   closingLine: 'Space is what remains when everything unnecessary has been removed.',

@@ -45,10 +45,10 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
   scrollBehavior(_to, _from, savedPosition) {
-    if (savedPosition) {
-      return savedPosition
-    }
-    return { top: 0 }
+    // Wait for the outgoing page to fade (see PageTransition) before moving the scroll position.
+    return new Promise((resolve) => {
+      setTimeout(() => resolve(savedPosition ?? { top: 0 }), 200)
+    })
   },
 })
 
