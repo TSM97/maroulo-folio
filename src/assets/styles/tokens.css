@@ -1,1 +1,48 @@
-/* TODO: tokens.css — see PORTFOLIO_PLAN.md Phase 2 */
+:root {
+  /* Colors */
+  --color-bg: #f4f2ee;
+  --color-ink: #1a1a1a;
+  --color-stone: #8c8780;
+  --color-line: rgba(26, 26, 26, 0.12);
+  --color-accent: #a0674b;
+  --color-placeholder: #e4e0d9;
+
+  /* Fonts */
+  --font-display: 'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
+  --font-body: 'Manrope', 'Inter', system-ui, sans-serif;
+
+  /* Fluid type scale */
+  --step--1: clamp(0.78rem, 0.75rem + 0.1vw, 0.89rem);
+  --step-0: clamp(0.94rem, 0.89rem + 0.2vw, 1.13rem);
+  --step-1: clamp(1.13rem, 1.06rem + 0.3vw, 1.42rem);
+  --step-2: clamp(1.35rem, 1.26rem + 0.5vw, 1.78rem);
+  --step-3: clamp(1.62rem, 1.48rem + 0.7vw, 2.25rem);
+  --step-4: clamp(1.94rem, 1.74rem + 1vw, 2.83rem);
+  --step-5: clamp(2.33rem, 2.03rem + 1.5vw, 3.58rem);
+  --step-6: clamp(2.8rem, 2.37rem + 2.2vw, 4.5rem);
+
+  /* Spacing (8px scale) */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 2.5rem;
+  --space-6: 3rem;
+  --space-7: 3.5rem;
+  --space-8: 4rem;
+  --space-9: 4.5rem;
+  --space-10: 5rem;
+  --space-11: 5.5rem;
+  --space-12: 6rem;
+
+  /* Layout */
+  --container-max: 1440px;
+  --gutter: clamp(1.25rem, 1rem + 1.5vw, 3rem);
+  --grid-columns: 12;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 200ms;
+  --dur-base: 400ms;
+  --dur-slow: 800ms;
+}

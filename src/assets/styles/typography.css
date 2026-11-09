@@ -1,1 +1,46 @@
-/* TODO: typography.css — see PORTFOLIO_PLAN.md Phase 2 */
+.display-xl {
+  font-family: var(--font-display);
+  font-size: var(--step-6);
+  line-height: 1.05;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.display-l {
+  font-family: var(--font-display);
+  font-size: var(--step-4);
+  line-height: 1.1;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+.body {
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.caption {
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  line-height: 1.4;
+  color: var(--color-stone);
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  line-height: 1;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-stone);
+}

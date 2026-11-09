@@ -33,6 +33,14 @@ const routes: RouteRecordRaw[] = [
   },
 ]
 
+if (import.meta.env.DEV) {
+  routes.splice(routes.length - 1, 0, {
+    path: '/styleguide',
+    name: 'styleguide',
+    component: () => import('@/views/StyleguideView.vue'),
+  })
+}
+
 const router = createRouter({
   history: createWebHistory(),
   routes,

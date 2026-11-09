@@ -1,1 +1,26 @@
-/* TODO: utilities.css — see PORTFOLIO_PLAN.md Phase 2 */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), 1fr);
+  gap: var(--gutter);
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.stack > * + * {
+  margin-top: var(--space-4);
+}
+
+.hairline {
+  border: none;
+  border-top: 1px solid var(--color-line);
+}
