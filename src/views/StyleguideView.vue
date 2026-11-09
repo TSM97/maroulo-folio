@@ -1,4 +1,18 @@
 <script setup lang="ts">
+import ArchImage from '@/components/ui/ArchImage.vue'
+import { useProjects } from '@/composables/useProjects'
+import type { ImageAsset, ImageRatio } from '@/types'
+
+const ratios: ImageRatio[] = ['16/9', '4/5', '3/2', '1/1', '21/9', '3/4']
+const ratioSamples: ImageAsset[] = ratios.map((ratio) => ({
+  src: '',
+  alt: `Sample ${ratio} placeholder`,
+  ratio,
+  caption: `Caption example for ${ratio}`,
+  placeholderLabel: `Sample — ${ratio.replace('/', ':')}`,
+}))
+
+const { allProjects } = useProjects()
 const colors = [
   { name: '--color-bg', var: 'var(--color-bg)' },
   { name: '--color-ink', var: 'var(--color-ink)' },
@@ -49,10 +63,35 @@ const spacingSteps = Array.from({ length: 12 }, (_, i) => i + 1)
         </div>
       </div>
     </section>
+
+    <hr class="hairline" />
+
+    <section class="stack">
+      <h2 class="heading">Image placeholders</h2>
+      <div class="image-grid">
+        <ArchImage v-for="sample in ratioSamples" :key="sample.ratio" :image="sample" />
+      </div>
+    </section>
+
+    <hr class="hairline" />
+
+    <section class="stack">
+      <h2 class="heading">Project covers</h2>
+      <div class="image-grid">
+        <ArchImage v-for="project in allProjects" :key="project.slug" :image="project.cover" />
+      </div>
+    </section>
   </main>
 </template>
 
 <style scoped>
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-4);
+  align-items: start;
+}
+
 .styleguide {
   padding-block: var(--space-8);
 }
