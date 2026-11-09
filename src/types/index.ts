@@ -79,7 +79,7 @@ export interface AboutContent {
   name: string
   role: string
   portrait: ImageAsset
-  studioImage: ImageAsset
+  workspaceImage: ImageAsset
   bio: string[]
   teaser: string
   philosophy: Principle[]

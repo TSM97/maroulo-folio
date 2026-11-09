@@ -24,3 +24,16 @@
   border: none;
   border-top: 1px solid var(--color-line);
 }
+
+/* Scroll reveal — driven by the v-reveal directive (src/composables/useReveal.ts).
+   The attribute is only set when motion is allowed, so nothing is hidden otherwise. */
+[data-reveal]:not([data-reveal-children]) {
+  transition:
+    opacity var(--dur-slow) var(--ease-out) var(--reveal-delay, 0ms),
+    transform var(--dur-slow) var(--ease-out) var(--reveal-delay, 0ms);
+}
+
+[data-reveal='pending']:not([data-reveal-children]) {
+  opacity: 0;
+  transform: translateY(var(--space-3));
+}

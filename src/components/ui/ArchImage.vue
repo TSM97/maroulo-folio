@@ -6,6 +6,8 @@ const props = defineProps<{
   image: ImageAsset
   sizes?: string
   eager?: boolean
+  /** Fill the parent's height instead of reserving space by aspect ratio. */
+  fill?: boolean
 }>()
 
 const failed = ref(false)
@@ -25,8 +27,8 @@ const ratioLabel = computed(() => props.image.ratio.replace('/', ':'))
 </script>
 
 <template>
-  <figure class="arch-image">
-    <div class="frame" :style="{ aspectRatio: ratioCss }">
+  <figure class="arch-image" :class="{ fill }">
+    <div class="frame" :style="fill ? undefined : { aspectRatio: ratioCss }">
       <div v-if="showPlaceholder" class="placeholder" role="img" :aria-label="image.alt">
         <svg class="cross" preserveAspectRatio="none" viewBox="0 0 100 100" aria-hidden="true">
           <line x1="0" y1="0" x2="100" y2="100" vector-effect="non-scaling-stroke" />
@@ -56,6 +58,11 @@ const ratioLabel = computed(() => props.image.ratio.replace('/', ':'))
 <style scoped>
 .arch-image {
   margin: 0;
+}
+
+.arch-image.fill,
+.arch-image.fill .frame {
+  height: 100%;
 }
 
 .frame {
@@ -99,6 +106,15 @@ const ratioLabel = computed(() => props.image.ratio.replace('/', ':'))
   letter-spacing: 0.08em;
 }
 
+/* Opt-in hover/focus zoom: put `hover-zoom` on an ancestor link. */
+:global(.hover-zoom:is(:hover, :focus-visible)) .frame > * {
+  transform: scale(1.04);
+}
+
+.placeholder {
+  transition: transform 1.2s var(--ease-out);
+}
+
 img {
   position: absolute;
   inset: 0;
@@ -106,7 +122,9 @@ img {
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity var(--dur-slow) var(--ease-out);
+  transition:
+    opacity var(--dur-slow) var(--ease-out),
+    transform 1.2s var(--ease-out);
 }
 
 img.loaded {
