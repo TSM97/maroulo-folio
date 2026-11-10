@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import { useHead } from '@unhead/vue'
 import { useMediaQuery } from '@vueuse/core'
 import Lightbox from '@/components/projects/Lightbox.vue'
 import NextProject from '@/components/projects/NextProject.vue'
 import ProjectFacts from '@/components/projects/ProjectFacts.vue'
 import ProjectGallery from '@/components/projects/ProjectGallery.vue'
 import ArchImage from '@/components/ui/ArchImage.vue'
+import { usePageMeta } from '@/composables/usePageMeta'
 import { useLightbox } from '@/composables/useLightbox'
 import { useProjects } from '@/composables/useProjects'
 import { vReveal } from '@/composables/useReveal'
@@ -30,20 +30,12 @@ const cover = computed<ImageAsset>(() => ({
 const viewerImages = computed<ImageAsset[]>(() => [project.value.cover, ...project.value.gallery])
 const lightbox = useLightbox(viewerImages)
 
-const ogImage = computed(() => {
-  const src = project.value.cover.src
-  return src ? new URL(src, window.location.origin).href : undefined
-})
-
-useHead({
+usePageMeta({
   title: () => project.value.title,
-  meta: [
-    { name: 'description', content: () => project.value.summary },
-    { property: 'og:type', content: 'article' },
-    { property: 'og:title', content: () => project.value.title },
-    { property: 'og:description', content: () => project.value.summary },
-    { property: 'og:image', content: () => ogImage.value },
-  ],
+  description: () => project.value.summary,
+  path: () => `/projects/${project.value.slug}`,
+  image: () => project.value.cover.src,
+  type: 'article',
 })
 </script>
 

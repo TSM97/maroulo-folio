@@ -7,7 +7,7 @@
  * Write a real `alt` and set `ratio` to match the photo. While `src` is '' a labelled
  * placeholder is shown, so the site never looks broken.
  */
-import type { ImageAsset, ImageRatio, Project } from '@/types'
+import type { ImageAsset, ImageRatio, Project } from '../types'
 
 /** Builds an empty-src image; `label` describes the intended shot. */
 function img(ratio: ImageRatio, label: string, alt: string, caption?: string): ImageAsset {

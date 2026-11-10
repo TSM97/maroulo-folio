@@ -1,17 +1,14 @@
 <script setup lang="ts">
 import { computed, nextTick, ref } from 'vue'
-import { useHead } from '@unhead/vue'
 import AppLink from '@/components/ui/AppLink.vue'
+import { usePageMeta } from '@/composables/usePageMeta'
 import { useContactForm, type ContactField } from '@/composables/useContactForm'
 import { vReveal } from '@/composables/useReveal'
 import { site } from '@/data/site'
 
 const page = site.contactPage
 
-useHead({
-  title: 'Contact',
-  meta: [{ name: 'description', content: page.intro }],
-})
+usePageMeta({ title: 'Contact', description: page.intro, path: '/contact' })
 
 const { values, trap, errors, status, onFieldChange, submit, reset } = useContactForm()
 

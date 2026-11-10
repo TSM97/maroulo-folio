@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useMediaQuery } from '@vueuse/core'
-import { gsap } from 'gsap'
 import { site } from '@/data/site'
 
 // Fine pointers only, and never under reduced motion.
@@ -14,11 +13,12 @@ const label = ref('')
 const shown = ref(false)
 let moveX: ((value: number) => void) | undefined
 let moveY: ((value: number) => void) | undefined
+let gsapSet: ((target: HTMLElement, vars: { x: number; y: number }) => unknown) | undefined
 
 function onMove(event: PointerEvent) {
-  if (!el.value) return
+  if (!el.value || !gsapSet) return
   if (!shown.value) {
-    gsap.set(el.value, { x: event.clientX, y: event.clientY })
+    gsapSet(el.value, { x: event.clientX, y: event.clientY })
     shown.value = true
   }
   moveX?.(event.clientX)
@@ -39,8 +39,10 @@ onMounted(() => {
 })
 
 // The element only exists once the media query matches, so set up tweens when it appears.
-watch(el, (node) => {
+watch(el, async (node) => {
   if (!node || moveX) return
+  const { gsap } = await import('gsap')
+  gsapSet = gsap.set
   moveX = gsap.quickTo(node, 'x', { duration: 0.4, ease: 'power3.out' })
   moveY = gsap.quickTo(node, 'y', { duration: 0.4, ease: 'power3.out' })
 })

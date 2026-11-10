@@ -1,14 +1,11 @@
 <script setup lang="ts">
-import { useHead } from '@unhead/vue'
 import ArchImage from '@/components/ui/ArchImage.vue'
 import SectionTitle from '@/components/ui/SectionTitle.vue'
+import { usePageMeta } from '@/composables/usePageMeta'
 import { vReveal } from '@/composables/useReveal'
 import { about } from '@/data/about'
 
-useHead({
-  title: 'About',
-  meta: [{ name: 'description', content: about.teaser }],
-})
+usePageMeta({ title: 'About', description: about.teaser, path: '/about' })
 
 function pad(n: number): string {
   return String(n).padStart(2, '0')

@@ -43,6 +43,7 @@ const ratioLabel = computed(() => props.image.ratio.replace('/', ':'))
         v-else
         :class="{ loaded }"
         :src="image.src"
+        :srcset="image.srcset"
         :alt="image.alt"
         :sizes="sizes"
         :loading="eager ? 'eager' : 'lazy'"

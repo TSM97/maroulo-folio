@@ -5,10 +5,12 @@
  * (e.g. '/images/hero/hero.webp'). Write a real `alt` and match `ratio` to the photo.
  * While `src` is '' a labelled placeholder is shown.
  */
-import type { SiteInfo } from '@/types'
+import type { SiteInfo } from '../types'
 
 export const site: SiteInfo = {
   name: 'Architect Name',
+  url: 'https://www.architectname.example',
+  ogImage: '/images/og-default.jpg',
   // Polish effects: set any flag to false to turn it off.
   effects: { smoothScroll: true, customCursor: true, intro: true },
   tagline: 'Architecture, quietly considered.',

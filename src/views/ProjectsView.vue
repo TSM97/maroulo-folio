@@ -1,15 +1,19 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { useHead } from '@unhead/vue'
 import ProjectFilter from '@/components/projects/ProjectFilter.vue'
 import ProjectGrid from '@/components/projects/ProjectGrid.vue'
 import ProjectList from '@/components/projects/ProjectList.vue'
 import TextToggleGroup from '@/components/ui/TextToggleGroup.vue'
+import { usePageMeta } from '@/composables/usePageMeta'
 import { useProjects } from '@/composables/useProjects'
 import type { CategoryFilter, ProjectsViewMode } from '@/types'
 
-useHead({ title: 'Works' })
+usePageMeta({
+  title: 'Works',
+  description: 'Selected architecture and interior projects: residential, cultural and public work.',
+  path: '/projects',
+})
 
 const route = useRoute()
 const router = useRouter()

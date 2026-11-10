@@ -14,6 +14,24 @@ const route = useRoute()
 useSmoothScroll()
 
 useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'ProfessionalService',
+        name: site.name,
+        description: site.tagline,
+        url: site.url,
+        image: `${site.url}${site.ogImage}`,
+        email: site.email,
+        telephone: site.phone,
+        address: { '@type': 'PostalAddress', streetAddress: site.address },
+        sameAs: site.socials.map((social) => social.url),
+        founder: { '@type': 'Person', name: site.name, jobTitle: 'Architect' },
+      }),
+    },
+  ],
   titleTemplate: (title) => (title ? `${title} — ${site.name}` : site.name),
 })
 </script>

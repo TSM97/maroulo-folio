@@ -3,6 +3,8 @@ export type ImageRatio = '16/9' | '4/5' | '3/2' | '1/1' | '21/9' | '3/4'
 export interface ImageAsset {
   /** Public path, e.g. '/images/projects/slug/cover.webp'. Empty string = show placeholder. */
   src: string
+  /** Optional responsive candidates, e.g. '/img/a-800.webp 800w, /img/a-1600.webp 1600w'. */
+  srcset?: string
   alt: string
   ratio: ImageRatio
   caption?: string
@@ -70,6 +72,10 @@ export interface SiteEffects {
 
 export interface SiteInfo {
   name: string
+  /** Production origin without trailing slash; used for canonical URLs and the sitemap. */
+  url: string
+  /** Default social-share image (public path, ideally 1200x630). */
+  ogImage: string
   tagline: string
   nav: NavLink[]
   statement: string
