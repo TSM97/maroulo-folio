@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
+import { useProjects } from '@/composables/useProjects'
 
 const routes: RouteRecordRaw[] = [
   {
@@ -15,6 +16,17 @@ const routes: RouteRecordRaw[] = [
     path: '/projects/:slug',
     name: 'project-detail',
     component: () => import('@/views/ProjectDetailView.vue'),
+    beforeEnter: (to) => {
+      // Unknown slug -> 404, keeping the requested URL.
+      if (useProjects().getBySlug(String(to.params.slug))) return true
+      return {
+        name: 'not-found',
+        params: { pathMatch: to.path.slice(1).split('/') },
+        query: to.query,
+        hash: to.hash,
+        replace: true,
+      }
+    },
   },
   {
     path: '/about',
