@@ -49,6 +49,16 @@ export interface NavLink {
   to: string
 }
 
+export interface ContactPageContent {
+  headline: string
+  intro: string
+  projectTypes: string[]
+  successTitle: string
+  successText: string
+  errorText: string
+  mailtoText: string
+}
+
 export interface SiteInfo {
   name: string
   tagline: string
@@ -60,6 +70,7 @@ export interface SiteInfo {
   phone: string
   address: string
   socials: SocialLink[]
+  contactPage: ContactPageContent
   hero: ImageAsset
 }
 
