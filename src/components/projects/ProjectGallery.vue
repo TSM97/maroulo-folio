@@ -23,6 +23,7 @@ function sizesFor(kind: string): string {
         :key="item.index"
         v-reveal
         class="item hover-zoom"
+        data-cursor="View"
         :class="{ lower: row.kind === 'pair' && item !== row.items[0] }"
       >
         <ArchImage :image="item.image" :sizes="sizesFor(row.kind)" />

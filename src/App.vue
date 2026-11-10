@@ -4,9 +4,14 @@ import { useHead } from '@unhead/vue'
 import PageTransition from '@/components/layout/PageTransition.vue'
 import SiteFooter from '@/components/layout/SiteFooter.vue'
 import SiteHeader from '@/components/layout/SiteHeader.vue'
+import Cursor from '@/components/ui/Cursor.vue'
+import IntroLoader from '@/components/ui/IntroLoader.vue'
+import { useSmoothScroll } from '@/composables/useSmoothScroll'
 import { site } from '@/data/site'
 
 const route = useRoute()
+
+useSmoothScroll()
 
 useHead({
   titleTemplate: (title) => (title ? `${title} — ${site.name}` : site.name),
@@ -14,6 +19,8 @@ useHead({
 </script>
 
 <template>
+  <IntroLoader />
+  <Cursor />
   <a href="#main" class="skip-link">Skip to content</a>
   <SiteHeader />
   <div id="main" tabindex="-1" class="content" :class="{ offset: route.name !== 'home' }">

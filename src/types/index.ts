@@ -59,6 +59,15 @@ export interface ContactPageContent {
   mailtoText: string
 }
 
+export interface SiteEffects {
+  /** Lenis smooth scrolling (off automatically under reduced motion). */
+  smoothScroll: boolean
+  /** Circle cursor that says "View" over project images (fine pointers only). */
+  customCursor: boolean
+  /** Studio-name splash on the first visit of a session. */
+  intro: boolean
+}
+
 export interface SiteInfo {
   name: string
   tagline: string
@@ -72,6 +81,7 @@ export interface SiteInfo {
   socials: SocialLink[]
   contactPage: ContactPageContent
   hero: ImageAsset
+  effects: SiteEffects
 }
 
 export interface Principle {

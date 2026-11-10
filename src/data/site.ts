@@ -9,6 +9,8 @@ import type { SiteInfo } from '@/types'
 
 export const site: SiteInfo = {
   name: 'Architect Name',
+  // Polish effects: set any flag to false to turn it off.
+  effects: { smoothScroll: true, customCursor: true, intro: true },
   tagline: 'Architecture, quietly considered.',
   nav: [
     { label: 'Works', to: '/projects' },

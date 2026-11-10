@@ -56,7 +56,7 @@ useHead({
     </header>
 
     <div class="cover container">
-      <div class="hover-zoom cover-frame">
+      <div class="hover-zoom cover-frame" data-cursor="View">
         <ArchImage :image="cover" sizes="100vw" eager />
         <button
           type="button"

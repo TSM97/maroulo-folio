@@ -107,7 +107,7 @@ const ratioLabel = computed(() => props.image.ratio.replace('/', ':'))
 }
 
 /* Opt-in hover/focus zoom: put `hover-zoom` on an ancestor link. */
-:global(.hover-zoom:is(:hover, :focus-visible)) .frame > * {
+:global(.hover-zoom:is(:hover, :focus-visible, :has(:focus-visible))) .frame > * {
   transform: scale(1.04);
 }
 

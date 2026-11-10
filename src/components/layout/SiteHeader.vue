@@ -136,7 +136,7 @@ watch(
 }
 
 .nav-link.router-link-active::after,
-.nav-link:hover::after {
+.nav-link:is(:hover, :focus-visible)::after {
   transform: scaleX(1);
 }
 

@@ -25,7 +25,7 @@ function indexLabel(index: number): string {
         class="item"
         :class="`pos-${index % 4}`"
       >
-        <RouterLink :to="`/projects/${project.slug}`" class="link hover-zoom">
+        <RouterLink :to="`/projects/${project.slug}`" class="link hover-zoom" data-cursor="View">
           <ArchImage :image="project.cover" sizes="(min-width: 768px) 50vw, 100vw" />
           <div class="meta">
             <span class="caption number">{{ indexLabel(index) }}</span>

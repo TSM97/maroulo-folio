@@ -16,7 +16,7 @@ const cover = computed<ImageAsset>(() => ({
 
 <template>
   <section class="next" aria-labelledby="next-heading">
-    <RouterLink :to="`/projects/${project.slug}`" class="link hover-zoom">
+    <RouterLink :to="`/projects/${project.slug}`" class="link hover-zoom" data-cursor="View">
       <div class="container">
         <p class="eyebrow">Next project</p>
         <h2 id="next-heading" class="display-xl title">

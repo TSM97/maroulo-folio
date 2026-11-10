@@ -10,7 +10,7 @@ const cover = computed<ImageAsset>(() => ({ ...props.project.cover, ratio: '4/5'
 </script>
 
 <template>
-  <RouterLink :to="`/projects/${project.slug}`" class="card hover-zoom">
+  <RouterLink :to="`/projects/${project.slug}`" class="card hover-zoom" data-cursor="View">
     <ArchImage :image="cover" sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" />
     <h3 class="heading">
       <span class="title">{{ project.title }}</span>

@@ -26,7 +26,7 @@ onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
   mm = gsap.matchMedia()
   mm.add('(prefers-reduced-motion: no-preference)', () => {
-    gsap.fromTo(introEl, { scale: 1.08 }, { scale: 1, duration: 2, ease: 'power2.out' })
+    gsap.fromTo(introEl, { scale: 1.08 }, { scale: 1, duration: 1.2, ease: 'power2.out' })
     gsap.fromTo(
       parallaxEl,
       { yPercent: 0 },
